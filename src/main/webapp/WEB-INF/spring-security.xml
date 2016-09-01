@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:bean xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security.xsd">
+   	
+   	<http auto-config="true">
+	 	<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/index" access="permitAll" />
+		
+	 <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
+	 <form-login login-page="/loginpage"  authentication-failure-url="/aboutus" username-parameter="userid" password-parameter="password" login-processing-url="/login"/>
+	 <csrf disabled="true"/>
+	 <logout logout-success-url="/index" />
+	</http>
+	  
+		
+	<authentication-manager>
+    <authentication-provider>
+        <user-service>
+            <user name="s" password="aa" authorities="ROLE_ADMIN" />
+			<user name="ujjwal" password="12345" authorities="ROLE_ADMIN"/>
+        </user-service>
+    </authentication-provider>
+</authentication-manager>
+<!-- 
+ <authentication-manager>
+  <authentication-provider>
+   <jdbc-user-service data-source-ref="myDataSource"
+    users-by-username-query="select username,password, enabled from users where username=?"
+    authorities-by-username-query="select username, role from user_roles where username =?  " />
+  </authentication-provider>
+ </authentication-manager>
+	  -->
+</beans:bean>
