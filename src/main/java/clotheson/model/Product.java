@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,9 +38,31 @@ public class Product {
 	private String size;
 	@Transient
 	private MultipartFile image;
-	@ManyToOne
-	@JoinColumn(name="category_id",insertable=false, updatable=false)
+	@ManyToOne(cascade={javax.persistence.CascadeType.ALL})
+	@JoinColumn(name="category_id")
 	private Category category;
+	public Product()
+	{
+		
+	}
+	public Product(String name,double price,String brand,String color,String size,Category category)
+	{
+		this.name=name;
+		this.price=price;
+		this.brand=brand;
+		this.color=color;
+		this.size=size;
+		this.category=category;
+	}
+	public Product(Product p)
+	{
+		this.name=p.name;
+		this.price=p.price;
+		this.brand=p.brand;
+		this.color=p.color;
+		this.size=p.size;
+		this.category=p.category;
+	}
 	public MultipartFile getImage() {
 		return image;
 	}

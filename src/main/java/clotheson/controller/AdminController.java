@@ -41,6 +41,7 @@ public class AdminController {
 	model.addObject("product", product);
 	//model.addObject("isadmin", "true");
 		model.addObject("productlist",productDao.list());
+		model.addObject("categorylist", categoryDao.list());
 		return model;
 	}
 	@RequestMapping("/managecategories")

@@ -21,19 +21,10 @@
 		
 	<authentication-manager>
     <authentication-provider>
-        <user-service>
-            <user name="s" password="aa" authorities="ROLE_ADMIN" />
-			<user name="ujjwal" password="12345" authorities="ROLE_ADMIN"/>
-        </user-service>
+        <jdbc-user-service data-source-ref="dataSource"
+    users-by-username-query="SELECT USERNAME, PASSWORD, CASE admin  WHEN 1 THEN 'true' ELSE 'false' END ADMIN FROM CUSER WHERE USERNAME=?"
+    authorities-by-username-query="SELECT u.USERNAME, r.ROLENAME FROM CUSER u, USER_ROLE r WHERE u.ID = r.USERID AND u.USERNAME=?;" />
+  
     </authentication-provider>
 </authentication-manager>
-<!-- 
- <authentication-manager>
-  <authentication-provider>
-   <jdbc-user-service data-source-ref="myDataSource"
-    users-by-username-query="select username,password, enabled from users where username=?"
-    authorities-by-username-query="select username, role from user_roles where username =?  " />
-  </authentication-provider>
- </authentication-manager>
-	  -->
 </beans:bean>

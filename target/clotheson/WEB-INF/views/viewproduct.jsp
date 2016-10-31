@@ -27,40 +27,8 @@
     </div>
 <br><br>
 <h1 >WELCOME ${username}<a href="${session.getContextPath()}/clotheson/logout"><span style="float:right;text-decoration:none;color:white;">LOGOUT</span></a></h1>
+<a href="${session.getContextPath()}/clotheson/viewProduct">VIEW AVAILABLE PRODUCTS</a>
 
-<br>
-<br><br>
-<div class="container">
-<div class="row">
-    <div class="col-md-4">
-        <img alt="img" src="${img}pr1.jpg" height="410px" width="400px" style="padding-right:10px;padding-left:10px;">
-			
-    </div>
-    <div class="col-md-4">
-        <img alt="img" src="${img}pr2.jpg" height="410px" width="400px" style="padding-right:10px;padding-left:10px;">
-    </div>
-   <div class="col-md-4">
-        <img alt="img" src="${img}pr3.jpg"  height="410px" width="400px" style="padding-right:10px;padding-left:10px;">
-			
-    </div>
-</div>
-</div>
-<br><br>
-<div class="container">
-<div class="row">
-    <div class="col-md-4">
-        <img alt="img" src="${img}pr4.jpg" height="410px" width="400px" style="padding-right:10px;padding-left:10px;">
-			
-    </div>
-    <div class="col-md-4">
-        <img alt="img" src="${img}pr6.jpg" height="410px" width="400px" style="padding-right:10px;padding-left:10px;">
-    </div>
-   <div class="col-md-4">
-        <img alt="img" src="${img}pr8.jpg"  height="410px" width="400px" style="padding-right:10px;padding-left:10px;">
-			
-    </div>
-</div>
-</div>
 <br><br><%@include file="footer.jsp" %>
 </body>
 </html>

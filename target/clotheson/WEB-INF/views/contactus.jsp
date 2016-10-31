@@ -1,12 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<%@include file="header.jsp" %>
+
 <body>
-contact us
+<div style="background-color:white;">
+<center>
+	
+	<form>
+    
+	<h1>CONTACT US</h1><br>
+	<br>
+
+	<h1>Customer care</h1>
+
+	Want to know about order status or queries related to a product give us a call or drop a line
+	<br>
+  	<div> <input type="text" >
+            
+    <button type="submit"  class="btn btn-default">FeedBack</button>
+    </div>
+<br><blockquote>
+	Phone number: 0121-6128000; <br>
+	Email: cl@clotheson.com <br>
+	(8 AM - 12 AM midnight everyday).
+</blockquote>
+  </form>
+  </center>
+     
+ 
+
+<%@include file="footer.jsp"%>
+
+
+</div>
+
 </body>
-</html>
+
+
+
+

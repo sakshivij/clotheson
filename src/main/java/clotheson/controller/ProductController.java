@@ -2,6 +2,8 @@ package clotheson.controller;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -13,10 +15,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import clotheson.dao.CategoryDao;
 import clotheson.dao.ProductDao;
+import clotheson.model.Category;
 import clotheson.model.Product;
 
 @Controller
@@ -27,19 +32,28 @@ public class ProductController {
 	ProductDao productDao;
 	@Autowired
 	Product product;
+	@Autowired
+	CategoryDao categoryDao;
+	@Autowired
+	Category category;
 	
-
+	List<Product> plist=new ArrayList<Product>();
 	  @RequestMapping(value={"/product/add"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
 	  String insertProduct(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model, HttpServletRequest request)
 	  {
 	    if (result.hasErrors())
-	    {
-	      model.addAttribute("listProduct", this.productDao.list());
+	    { model.addAttribute("listProduct", this.productDao.list());
 	      return "Product";
 	    }
 	    if (p.getId() == null)
-	    {
-	      this.productDao.SaveorUpdateProduct(p);
+	    {String name= p.getCategory().getName();
+	    /*here is error*/
+	    List<Category> clist=categoryDao.getCategory(name);
+	    //category.setName(name);
+	    	//p.setCategory(category);
+	    	plist.add(p);
+	    	category.setProductlist(plist);
+	    	this.productDao.SaveorUpdateProduct(p);
 	      MultipartFile file = p.getImage();
 	      String filelocation = request.getSession().getServletContext().getRealPath("/resources/images/");
 	      System.out.println(filelocation);
@@ -71,6 +85,7 @@ public class ProductController {
 	  {
 	    model.addAttribute("product", this.productDao.getProductById(id));
 	    model.addAttribute("listProduct", this.productDao.list());
+	    model.addAttribute("categorylist",this.categoryDao.list());
 	    return "Product";
 	  }
 	  

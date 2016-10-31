@@ -19,7 +19,7 @@
         <th>Color</th>
         <th>Size</th>
         <th>Price</th>
-        
+        <th>Category</th>
          <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -33,6 +33,7 @@
             <td>${product.color}</td>
             <td>${product.size}</td>
             <td>${product.price}</td>
+             <td>${product.category.name}</td>
              <td><a href="<c:url value='/edit/${product.id}'></c:url>">Edit</a></td>       
             <td><a href="<c:url value='/delete/${product.id}'></c:url>">Delete</a></td>
         </tr>
@@ -48,7 +49,7 @@
 	<div class=col-xs-2></div>
 	<div class="col-xs-8" style="overflow-x:auto;">
 	<form:form action="${addAction}" commandName="product" modelAttribute="product" method="POST" enctype="multipart/form-data" >
-	<table   width="80%" >
+	<table  width="80%" >
     <c:if test="${!empty product.name}">
     <tr>
         <td width="25%">
@@ -152,6 +153,23 @@
             <form:input path="price" />
         </td>
         <td width="30%"><form:errors path="price" cssStyle="color: #ff0000;"/></td>
+    </tr>
+    <tr>
+    <td width="25%">
+    <form:label path="category.name">
+                <spring:message text="Category"/>
+            </form:label>
+      </td>
+      <td width="25%">
+    
+		<form:select path="category.name">
+				<form:option value="" label="--- Select ---" />
+				  <c:forEach items="${categorylist}" var="category">
+				<form:option value="${category.name}"></form:option>
+				</c:forEach>		
+		</form:select> 
+		
+      </td>
     </tr>
       <tr>
         <td width="25%">

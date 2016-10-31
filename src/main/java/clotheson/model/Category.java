@@ -16,6 +16,14 @@ import org.springframework.stereotype.Component;
 @Table(name="Category")
 @Component
 public class Category {
+	public Category()
+	{
+		
+	}
+	public Category(String name)
+	{
+		this.name=name;
+	}
 	public String getId() {
 		return id;
 	}
@@ -23,6 +31,7 @@ public class Category {
 		return productlist;
 	}
 	public void setProductlist(List<Product> productlist) {
+		//productlist.add(p);
 		this.productlist = productlist;
 	}
 	public void setId(String id) {

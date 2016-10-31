@@ -5,12 +5,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 
 
+
 import clotheson.dao.CategoryDao;
 //import clotheson.config.ApplicationContextConfig;
 import clotheson.dao.ProductDao;
 import clotheson.model.Category;
 import clotheson.model.Product;
 
+import java.util.*;
 
 
 
@@ -22,27 +24,29 @@ public class test {
 		context.scan("clotheson");
 		context.refresh();
 		ProductDao productDAO =  (ProductDao) context.getBean("productDao");
+		CategoryDao categoryDAO =  (CategoryDao) context.getBean("categoryDao");
 		Product p =(Product)context.getBean("product");
+		Category c =(Category)context.getBean("category");
 		//productDAO.deleteProduct("1");		
-		/*p.setBrand("Tommy");
+		p.setBrand("Tommy");
 		p.setColor("red");
 		p.setName("FlowShirt");
 		p.setPrice(1000);
 		p.setSize("M");
+		c.setName("Shirt");
+		p.setCategory(c);
 		productDAO.SaveorUpdateProduct(p);
-*/	/*	p.setBrand("Tomato");
-		p.setColor("Pink");
-		p.setName("Skirt");
-		p.setPrice(1200);
-		p.setSize("S");
-		productDAO.SaveorUpdateProduct(p);*/
-	/*	p.setBrand("UnitedColors Of Beneton");
+		List<Product> list=new ArrayList();
+		list.add(p);
+		//categoryDAO.SaveorUpdateCategory(c);
+		//context.close();
+			/*	p.setBrand("UnitedColors Of Beneton");
 		p.setColor("red");
 		p.setName("Trousers");
 		p.setPrice(3000);
 		p.setSize("L");
 		productDAO.SaveorUpdateProduct(p);
 		*/
-		productDAO.getProductById("37");
+	//	productDAO.getProductById("37");
 	}
 }
