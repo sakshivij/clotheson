@@ -7,121 +7,22 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:url value="/resources/images/" var="img"/>
-
+<c:url value="/resources/css" var="style"/>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Tangerine">
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script
-src="http://maps.googleapis.com/maps/api/js">
-</script>
-
-<script>
-function initialize() {
-  var mapProp = {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>ClothesOnMind</title>
-<style>
-<style>
-#background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    
-}
-.navbar-custom{
-	
-	background-color:white;
-}
-.admin a
-{
-	text-decoration:none;
-	color:white;
-	font-size:30px;
-	font-family:arial cursive;
-}
-<!-- search bar-->
-#custom-search-input{
-    padding: 3px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
-}
-
-#custom-search-input input{
-    border: 0;
-    box-shadow: none;
-}
-
-#custom-search-input button{
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    color: #666666;
-    padding: 0 8px 0 10px;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input button:hover{
-    border: 0;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input .glyphicon-search{
-    font-size: 23px;
-}
-#explore {
-		padding-top:0px;
-        font-family: 'Tangerine', serif;
-        font-size:100px;
-        color:white;
-        background-color:black;
-      }
-body
-{
-	background-color:black;
-}
-.center {
-    margin-top:30px;
-    margin-left:20px;
-    width: 50%;
-    border: 3px solid #73AD21;
-    padding-right:50px;
-    padding-left:50px;
-    padding-bottom:50px;
-    padding-top:50px;
-    background-color:white;
-    text-align:center;
-}
-.form
-{
-	font-size:30px;
-	font-family:arial bold;
-
-}
-</style>
+<link rel="stylesheet" type="text/css" href="${style}/style.css"/>
 </head>
 <body>
-<nav class="navbar navbar-default bg-fade" style="padding-bottom:0px;" >
+
+<!--  <nav class="navbar navbar  bg-fade" style="padding-bottom:0px;" >
   <div class="container-fluid" style="padding-bottom:0px;">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
@@ -142,7 +43,7 @@ body
                 </div>
             </div>
    </div> 
- </nav>
+ -->
  <nav class="navbar navbar-inverse" style="background-color:#0d0d0d;">
   <div class="container-fluid">
 <ul class="nav navbar-nav">
